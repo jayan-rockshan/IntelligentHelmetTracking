@@ -1,0 +1,72 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Helmet & Plate Monitor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="/static/main.css" rel="stylesheet" />
+   <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Helmet & Plate Monitoring</h1>
+    <div class="actions">
+      <input id="search" type="text" placeholder="Search plate…" />
+      <button id="btnRefresh">Refresh</button>
+      <a id="btnDownload" href="/download" class="button" download>Download CSV</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="video-pane">
+      <div class="video-card">
+        <h2>Live Processed Video</h2>
+        <img id="video" src="/video_feed" alt="Live stream" />
+        <div class="hint">Press <kbd>Q</kbd> in terminal to stop the server, or just close it.</div>
+      </div>
+    </section>
+
+    <section class="table-pane">
+      <div class="table-card">
+        <h2>Detected Plates</h2>
+        <div class="table-scroll">
+          <table id="plateTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Frame #</th>
+                <th>Plate Text</th>
+                <th>Snapshot</th>
+                <th>Detected At</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="footer">
+          <span id="rowCount">0 rows</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Charts section -->
+  <section class="charts">
+    <div class="chart-card">
+      <h2>Violations Over Time</h2>
+      <canvas id="barChart"></canvas>
+    </div>
+    <div class="chart-card">
+      <h2>Helmet Status Distribution</h2>
+      <canvas id="pieChart"></canvas>
+    </div>
+  </section>
+
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

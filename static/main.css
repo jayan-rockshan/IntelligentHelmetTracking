@@ -1,0 +1,180 @@
+/* static/main.css */
+:root {
+  --bg: #0b0f14;
+  --card: #131a22;
+  --text: #e8eef6;
+  --muted: #9fb3c8;
+  --accent: #3da9fc;
+  --border: #233042;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: #0d141c;
+}
+
+.topbar h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.actions input[type="text"] {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  min-width: 220px;
+  outline: none;
+}
+
+.button, .actions button {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover, .actions button:hover { border-color: var(--accent); }
+
+.container {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+.video-card, .table-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+.video-card h2, .table-card h2 {
+  margin: 6px 6px 12px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+#video {
+  width:  600px;
+  height: 700px ;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: block;
+  background: #000;
+}
+
+
+
+.hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.table-scroll {
+  max-height: calc(100vh - 240px);
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background: #0f1620;
+  z-index: 1;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+  text-align: left;
+  padding: 10px;
+}
+
+tbody td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px;
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: #0e1520;
+}
+
+.footer {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+
+/* (keep your existing code, then add:) */
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+.chart-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+.chart-card h2 {
+  margin: 6px 6px 12px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+canvas {
+  width: 100% !important;
+  height: 400px !important;
+}
+
+
+
+@media (max-width: 1100px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  .table-scroll { max-height: 50vh; }
+
+  .charts {
+    grid-template-columns: 1fr;
+  }
+}
